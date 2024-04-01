@@ -80,3 +80,63 @@ Corremos la migración y podriamos ver reflejada la tabla en la BD.
 ```
 
 Esto genera el Model Task y el controller con las acciones CRUD.
+
+---
+
+<br/>
+
+
+| 🚀 Layout & Index View                       |
+|----------------------------------------------|
+| [Blade Laravel](https://laravel.com/docs/11.x/blade)|
+
+<br/>
+
+- Representa una plantilla base que define la estructura básica reutilizable de una o más páginas.
+- Para esta prueba de concepto vamos a utilizar Bootstrap como plantilla de estilos.
+- Creamos una estructura básica para el Layout:
+    - base.blade.php  (Diseño base)
+    - yield (slot para insertar un parcel html)
+
+```php
+    <div class="container">
+        @yield('content')  <<<<Este es un slot con el identificador **content**>>>>
+    </div>
+```
+
+```php
+    @extends('layouts.base')  <<<<Hereda la plantilla base>>>>
+
+    @section('content')  <<<<Accede al slot **content** y le inyecta el contenido a continuación>>>>
+    <div>
+        <p>Contenido inyectado al slot del Layout</p>
+    </div>
+    @endsection
+```
+
+Bien ahora debemos liberar la ruta que permite acceso al controller.
+```php
+
+    // Importación de rutas de controlador
+    use App\Http\Controllers\TaskController;
+
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
+    // Enlazamos la ruta al controlador del recurso
+    Route::resource('tasks', TaskController::class);
+```
+
+Por último retornamos la vista **index** en la acción index del controller.
+```php
+    public function index()
+    {
+        return view('index');
+    }
+```
+
+🚀 Ya deberiamos ser capaces de ver la viste index de tareas
+- [url con Laragon](https://todo.test/tasks)
+- [url con Laragon y ssl](http://todo.test/tasks)
+- [url con **php artisan serve**](http://localhost:8000/tasks)

@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+// Importación de rutas de controlador
+use App\Http\Controllers\TaskController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +19,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::resource('tasks', TaskController::class);
