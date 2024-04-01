@@ -40,3 +40,30 @@ Con esto se generarán los registro por defecto que necesita laravel para funcio
 
 <br/>
 
+
+
+| ⛰️ Migration                                |
+|----------------------------------------------|
+| [Data types](https://www.heinsoe.com/blog/85) |
+
+Creamos una migración para generar un cambio incremental en la BD.
+Estará directamente relacionado con el Modelo Task.
+
+```bash
+    $ php artisan make:migration create_tasks_table
+```
+Ahora solo restaria editar la migración según conveniencia para que cuente con los campos que nos interesan.
+
+```php
+    Schema::create('tasks', function (Blueprint $table) {
+        $table->id();
+        $table->string('title');
+        $table->text('description');
+        $table->dateTime('due_date')->nullable();
+        $table->enum('state', ['PENDING', 'IN_PROGRESS', 'COMPLETE'])->default('PENDING');
+        $table->timestamps();
+    });
+```
+Corremos la migración y podriamos ver reflejada la tabla en la BD.
+
+
