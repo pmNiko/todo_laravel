@@ -35,8 +35,8 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        // Muestra todo el objeto request
-        dd($request->all());
+        task::create($request->all());
+        return redirect()->route('tasks.index');
     }
 
     /**
