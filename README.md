@@ -80,6 +80,7 @@ Corremos la migración y podriamos ver reflejada la tabla en la BD.
 ```
 
 Esto genera el Model Task y el controller con las acciones CRUD.
+Model tambien va en Mayuscula y singular
 
 ---
 
