@@ -76,10 +76,11 @@ Corremos la migración y podriamos ver reflejada la tabla en la BD.
 | [Fuente extra](https://ashutosh.dev/laravel-10-all-about-controllers/) |
 
 ```bash
-    $ php artisan make:controller TaskController --resource --model=task
+    $ php artisan make:controller TaskController --resource --model=Task
 ```
 
 Esto genera el Model Task y el controller con las acciones CRUD.
+Model tambien va en Mayuscula y singular
 
 ---
 
