@@ -140,3 +140,60 @@ Por último retornamos la vista **index** en la acción index del controller.
 - [url con Laragon](https://todo.test/tasks)
 - [url con Laragon y ssl](http://todo.test/tasks)
 - [url con **php artisan serve**](http://localhost:8000/tasks)
+
+---
+
+<br/>
+
+
+| 🦀 Create Task                              |
+|----------------------------------------------|
+| [@csrf](https://laravel.com/docs/11.x/csrf)  |
+
+<br/>
+
+- View -> Create
+```php
+    @extends('layouts.base')  
+
+    @section('content') 
+    <div>
+        // Formulario de creación de una tarea
+        .....
+        // Tanto los actions como los href se mueven entre secciones con el método **route**    
+        <form action="{{route('tasks.store')}}" method="POST">
+            @csrf   //Adherimos este decorador
+            <div class="row">
+        ....
+    </div>
+    @endsection
+```
+
+- Action controller -> create (retorna el formulario)
+```php
+    public function create()
+    {
+        return view('create');
+    }
+```
+
+- Action controller -> store (lógica de almacenamiento del registro)
+```php
+    public function store(Request $request)
+    {
+        // Muestra todo el objeto request
+        dd($request->all());
+    }
+```
+
+De esta manera si enviamos el formulario veriamos por pantalla los datos ingresados.
+
+```json
+    array:5 [▼ // app\Http\Controllers\TaskController.php:39
+        "_token" => "X6zDQPFI66v7yo9S95FqJmaLC5wMZgMD2EqihWgk"
+        "title" => "Primer tarea"
+        "description" => "Esta es mi primer tarea creada"
+        "due_date" => "1994-03-12"
+        "status" => "Pendiente"
+    ]
+```
