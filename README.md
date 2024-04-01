@@ -210,3 +210,16 @@ De esta manera si enviamos el formulario veriamos por pantalla los datos ingresa
 
 <br/>
 
+- Estos son dos middlewares que apuntan a habilitar u omitir el acceso de actualización masiva de datos.
+
+```php
+    class Task extends Model
+    {
+        use HasFactory;
+
+        // propiedades admitidas para asignación masiva
+        protected $fillable = ['title', 'description', 'due_date', 'state'];
+    }
+```
+
+- Entonces ya podriamos crear nuestra primer tarea y verla reflejada en base de datos.
