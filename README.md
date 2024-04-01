@@ -66,4 +66,17 @@ Ahora solo restaria editar la migración según conveniencia para que cuente con
 ```
 Corremos la migración y podriamos ver reflejada la tabla en la BD.
 
+---
 
+<br/>
+
+
+| ⛰️ Controller & Model                                |
+|----------------------------------------------|
+| [Fuente extra](https://ashutosh.dev/laravel-10-all-about-controllers/) |
+
+```bash
+    $ php artisan make:controller TaskController --resource --model=task
+```
+
+Esto genera el Model Task y el controller con las acciones CRUD.
