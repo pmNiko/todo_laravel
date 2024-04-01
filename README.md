@@ -3,50 +3,40 @@
 _____
 
 
+| 📝  Recursos Markdown                    |
+|----------------------------------------------|
+| [Template](https://gist.github.com/cseeman/8f3bfaec084c5c4259626ddd9e516c61) |
+| [Extensiones VScode](https://github.com/mjbvz/vscode-github-markdown-preview?tab=readme-ov-file) |
+| [Wiki VScode](https://marketplace.visualstudio.com/items?itemName=lostintangent.wikilens) |
 
 
+<br/>
 
+----
 
-
------
-
-### Templates
-
-## Warning box
-
-| :exclamation:  You have to read about this   |
+| 📁 Database                                  |
 |----------------------------------------------|
 
+Una vez creada la base de datos con el nombre **<mi_base_de_datos>** 
+debemos enlazarla a la variable de entorno de nuestro proyecto.
+En el archivo .env 
 
-| :zap:        Risky setup going on here!  |
-|------------------------------------------|
+```env
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=mi_base_de_datos  <<<En eeste punto>>>
+```
 
-| :warning: WARNING           |
-|:----------------------------|
-| Another way to warn you     |
+Para comprobar que se ha conectado correctamente corremos el commando:
 
+```bash
+    $ php artisan migrate
+```
 
-| :boom: DANGER               |
-|:----------------------------|
-| Whoa there with this config |
+Con esto se generarán los registro por defecto que necesita laravel para funcionar, se puede comprobar en el gestor de BD.
 
-## Info panel
+---
 
-| :memo:        | This is something that is good to note       |
-|---------------|:---------------------------------------------|
+<br/>
 
-
-| :point_up:    | Hey did you actually read the doc above?|
-|---------------|:----------------------------------------|
-
-
-## Other markdown options
-
-> [!NOTE]  
-> Highlights information that users should take into account, even when skimming.
-
-> [!IMPORTANT]  
-> Crucial information necessary for users to succeed.
-
-> [!WARNING]  
-> Critical content demanding immediate user attention due to potential risks.
