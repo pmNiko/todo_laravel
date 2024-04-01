@@ -71,7 +71,7 @@ Corremos la migración y podriamos ver reflejada la tabla en la BD.
 <br/>
 
 
-| ⛰️ Controller & Model                                |
+| 🖌️ Controller & Model                       |
 |----------------------------------------------|
 | [Fuente extra](https://ashutosh.dev/laravel-10-all-about-controllers/) |
 
