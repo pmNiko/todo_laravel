@@ -80,6 +80,7 @@ Corremos la migración y podriamos ver reflejada la tabla en la BD.
 ```
 
 Esto genera el Model Task y el controller con las acciones CRUD.
+Model tambien va en Mayuscula y singular
 
 ---
 
@@ -140,3 +141,4 @@ Por último retornamos la vista **index** en la acción index del controller.
 - [url con Laragon](https://todo.test/tasks)
 - [url con Laragon y ssl](http://todo.test/tasks)
 - [url con **php artisan serve**](http://localhost:8000/tasks)
+
