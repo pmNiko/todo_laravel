@@ -197,4 +197,16 @@ De esta manera si enviamos el formulario veriamos por pantalla los datos ingresa
         "due_date" => "1994-03-12"
         "status" => "Pendiente"
     ]
+
+
 ```
+
+<br/>
+
+
+| 🔐 Store Task                              |
+|----------------------------------------------|
+| [fillable vs guarded](https://www.linkedin.com/pulse/understanding-laravels-fillable-vs-guarded-shashika-nuwan/)  |
+
+<br/>
+
