@@ -15,7 +15,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $tasks = Task::orderBy("created_at","desc");
+        return view('index', ['tasks'=> $tasks]);
     }
 
     /**

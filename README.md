@@ -224,6 +224,7 @@ De esta manera si enviamos el formulario veriamos por pantalla los datos ingresa
 
 - Entonces ya podriamos crear nuestra primer tarea y verla reflejada en base de datos.
 
+--- 
 
 <br/>
 
@@ -273,3 +274,25 @@ De esta manera si enviamos el formulario veriamos por pantalla los datos ingresa
             @yield('content')
         ....
 ```
+
+--- 
+
+<br/>
+
+
+| 📑 All Tasks                  |
+|----------------------------------------------|
+| [Request Validation](https://laravel-news.com/validation)  |
+
+<br/>
+
+- Controller method index
+```php
+    public function index()
+    {
+        $tasks = Task::orderBy("created_at","desc");
+        return view('index', ['tasks'=> $tasks]);
+    }
+```
+
+En el index de tareas recorremos con un foreach las tareas y las mostramos en una tabla.

@@ -35,11 +35,11 @@
             <div class="col-xs-12 col-sm-12 col-md-6 mt-2">
                 <div class="form-group">
                     <strong>Estado (inicial):</strong>
-                    <select name="status" class="form-select" id="">
+                    <select name="state" class="form-select" id="">
                         <option value="">-- Elige el status --</option>
-                        <option value="Pendiente">Pendiente</option>
-                        <option value="En progreso">En progreso</option>
-                        <option value="Completada">Completada</option>
+                        <option value="PENDING">Pendiente</option>
+                        <option value="IN_PROGRESS">En progreso</option>
+                        <option value="COMPLETE">Completada</option>
                     </select>
                 </div>
             </div>
