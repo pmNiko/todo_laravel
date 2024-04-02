@@ -23,7 +23,7 @@
 
             @foreach ($tasks as $task)
                 <tr>
-                    <td class="fw-bold">{{$task->title}}</td>
+                    <td class="fw-bold">{{$task->title}} {{$task->user->name}}</td>
                     <td>{{$task->description}}</td>
                     <td>
                         {{$task->due_date}}

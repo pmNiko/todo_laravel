@@ -457,3 +457,53 @@ En el index de tareas recorremos con un foreach las tareas y las mostramos en un
 ```bash
     $ php artisan migrate:fresh --seed    
 ```
+
+
+--- 
+
+<br/>
+
+
+| 😂 Modelos realcionales                    |
+|----------------------------------------------|
+|[foreign key](https://laravel.com/docs/11.x/migrations#foreign-key-constraints)  |
+|[Factory foreign key](https://stackoverflow.com/questions/40829086/defining-laravel-foreign-keys-with-model-factories-one-to-one-one-to-many-rel)  |
+
+<br/>
+
+- Lo primero será crear y correr la migración que agregue la llave foranea a la tabla task -> user_id
+    - php artisan make:migration add_user_id_to_tasks_table --table=tasks
+```php
+    public function up()
+    {
+        Schema::table('tasks', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id')->nullable();
+            
+            $table->foreign('user_id')->references('id')->on('users');
+        });
+    }
+```
+
+- Agregamos la columna a la factoria
+- Hay multiples maneras de lograr el objetivo
+```php
+    'user_id' => $this->faker->randomElement(User::pluck('id'))
+```
+
+- Corrermos el seeder para llenar los registros de manera random
+```bash
+    $ php artisan make:seeder TaskSeeder
+```
+
+- Ahora vamos a informarle al Model Task que tiene una referencia a User
+- Task.php (models)
+```php
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+```
+
+- Finalmente podemos acceder a las propiedades de user en la vista index
+```php
+    <td class="fw-bold">{{$task->title}} {{$task->user->name}}</td>
+```
