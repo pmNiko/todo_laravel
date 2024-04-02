@@ -401,3 +401,17 @@ En el index de tareas recorremos con un foreach las tareas y las mostramos en un
         return redirect()->route('tasks.index')->with('success', 'Tarea eliminada con éxito!');
     }
 ```
+
+--- 
+
+<br/>
+
+
+| 😂 Factory & Seeders                     |
+|----------------------------------------------|
+|[Factory](https://laravel.com/docs/11.x/eloquent-factories)  |
+|[Seeders](https://laravel.com/docs/5.4/seeding)  |
+|[Factory vs Seeders](https://betterstack.com/community/questions/what-is-the-ifference-between-factory-and-seeder-in-laravel/)  |
+|[FakerPHP](https://fakerphp.github.io/)  |
+
+<br/>
