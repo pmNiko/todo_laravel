@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class TaskController extends Controller
 {
@@ -13,9 +14,9 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): View
     {
-        $tasks = Task::orderBy("created_at","desc");
+        $tasks = Task::orderBy("created_at","asc")->paginate(1);
         return view('index', ['tasks'=> $tasks]);
     }
 
@@ -24,7 +25,7 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(): View
     {
         return view('create');
     }
@@ -51,7 +52,7 @@ class TaskController extends Controller
      * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function show(Task $task)
+    public function show(Task $task): View
     {
        //
     }
@@ -62,7 +63,7 @@ class TaskController extends Controller
      * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function edit(Task $task)
+    public function edit(Task $task): View
     {
         //
     }

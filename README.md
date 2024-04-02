@@ -296,3 +296,41 @@ De esta manera si enviamos el formulario veriamos por pantalla los datos ingresa
 ```
 
 En el index de tareas recorremos con un foreach las tareas y las mostramos en una tabla.
+
+--- 
+
+<br/>
+
+
+| 🦈 Paginator                                |
+|----------------------------------------------|
+| [Fuente](https://codeanddeploy.com/blog/laravel/laravel-8-pagination-example-using-bootstrap-5)  |
+
+<br/>
+
+- AppServiceProvider
+```php
+    public function boot()
+    {
+        Paginator::useBootstrap();
+    }
+```
+
+- TaskController.php
+```php
+    public function index()
+    {
+        $tasks = Task::orderBy("created_at","asc")->paginate(1);
+        return view('index', ['tasks'=> $tasks]);
+    }
+```
+
+- index.blade.php
+```php
+    // luego de la tabla de tareas
+    <div class="d-flex">
+        {!! $tasks->links() !!}
+    </div>
+```
+
+- Con solo estos pasos logramos un paginador de tareas.

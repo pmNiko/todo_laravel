@@ -40,8 +40,10 @@
                     </td>
                 </tr>
             @endforeach
-
         </table>
+        <div class="d-flex">
+            {!! $tasks->links() !!}
+        </div>
     </div>
 </div>
 @endsection
