@@ -464,7 +464,7 @@ En el index de tareas recorremos con un foreach las tareas y las mostramos en un
 <br/>
 
 
-| 😂 Modelos realcionales                    |
+| 😂 Modelos relacionales                    |
 |----------------------------------------------|
 |[foreign key](https://laravel.com/docs/11.x/migrations#foreign-key-constraints)  |
 |[Factory foreign key](https://stackoverflow.com/questions/40829086/defining-laravel-foreign-keys-with-model-factories-one-to-one-one-to-many-rel)  |
