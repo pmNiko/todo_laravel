@@ -223,3 +223,53 @@ De esta manera si enviamos el formulario veriamos por pantalla los datos ingresa
 ```
 
 - Entonces ya podriamos crear nuestra primer tarea y verla reflejada en base de datos.
+
+
+<br/>
+
+
+| ✅ Validate Properties Task                  |
+|----------------------------------------------|
+| [Request Validation](https://laravel-news.com/validation)  |
+
+<br/>
+
+- Si las validaciones no se cumplen arrojaran errores los culaes mostraremos en el Layout base.
+- Con la directiva ->with() guarda un mensaje en una variable de sesion del tipo flash. 
+```php
+    public function store(Request $request): RedirectResponse // Tipo de respuesta
+    {
+        $request->validate([
+            'title'       => 'required',
+            'description' => 'required',
+        ]);
+        Task::create($request->all());
+        return redirect()->route('tasks.index')->with('success','Tarea creada con éxito!');
+    }
+```
+- base.blade.php
+```php
+    .....
+    <body class="bg-dark text-white">
+        <div class="container">
+            // Mensajes de éxito
+            @if (Session::get('success'))
+                <div class="alert alert-success">
+                    <strong>{{Session::get('success')}}</strong><br><br>                    
+                </div>
+            @endif
+
+            // Mensajes de error
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <strong>Ha ocurrido un error!</strong><br><br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            @yield('content')
+        ....
+```

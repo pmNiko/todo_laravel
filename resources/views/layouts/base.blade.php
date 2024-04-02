@@ -11,6 +11,22 @@
 </head>
 <body class="bg-dark text-white">
     <div class="container">
+        @if (Session::get('success'))
+            <div class="alert alert-success">
+                <strong>{{Session::get('success')}}</strong><br><br>
+                
+            </div>
+        @endif
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <strong>Ha ocurrido un error!</strong><br><br>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         @yield('content')
     </div>
 
