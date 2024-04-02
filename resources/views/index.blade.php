@@ -29,7 +29,7 @@
                         {{$task->due_date}}
                     </td>
                     <td>
-                        <span class="badge bg-warning fs-6">{{$task->state}}</span>
+                        <span class="badge bg-warning fs-6">{{$task->status()}}</span>
                     </td>
                     <td class="d-flex gap-2">
                         <a href="{{route('tasks.edit', $task)}}" class="btn btn-warning">
