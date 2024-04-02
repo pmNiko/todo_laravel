@@ -415,3 +415,45 @@ En el index de tareas recorremos con un foreach las tareas y las mostramos en un
 |[FakerPHP](https://fakerphp.github.io/)  |
 
 <br/>
+
+- Creamos el factory
+```bash
+    $ php artisan make:factory TaskFactory --model=Task
+```
+
+- Definimos la plantilla de datos con faker
+
+```php
+    public function definition()
+    {
+        return [
+            'title'       => $this->faker->sentence(3), 
+            'description' => $this->faker->paragraph(2), 
+            'due_date'    => $this->faker->dateTime(), 
+            'state'       => $this->faker->randomElement(['PENDING', 'IN_PROGRESS', 'COMPLETE']),
+        ];
+    }
+```
+
+- Creamos un seeder
+```bash
+    $ php artisan make:seeder TaskSeeder   
+```
+
+- Definimos el seeder en base a la factoria
+```php
+    public function run()
+    {
+        Task::factory()->count(20)->create();
+    }
+```
+
+- Por ultimo corremos el seed para llenar nuestra tabla.
+```bash
+    $ php artisan db:seed --class=TaskSeeder  
+```
+
+- Podemos limpiar la tabla con el siguiente comando
+```bash
+    $ php artisan migrate:fresh --seed    
+```

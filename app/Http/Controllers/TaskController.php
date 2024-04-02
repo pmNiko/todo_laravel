@@ -16,7 +16,7 @@ class TaskController extends Controller
      */
     public function index(): View
     {
-        $tasks = Task::orderBy("created_at","asc")->paginate(1);
+        $tasks = Task::orderBy("created_at","asc")->paginate(10);
         return view('index', ['tasks'=> $tasks]);
     }
 
