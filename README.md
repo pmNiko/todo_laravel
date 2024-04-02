@@ -302,7 +302,7 @@ En el index de tareas recorremos con un foreach las tareas y las mostramos en un
 <br/>
 
 
-| 🦈 Paginator                                |
+| 🔪 Paginator                                |
 |----------------------------------------------|
 | [Fuente](https://codeanddeploy.com/blog/laravel/laravel-8-pagination-example-using-bootstrap-5)  |
 
@@ -334,3 +334,36 @@ En el index de tareas recorremos con un foreach las tareas y las mostramos en un
 ```
 
 - Con solo estos pasos logramos un paginador de tareas.
+
+--- 
+
+<br/>
+
+
+| 🆙 Update Tasks                                |
+|----------------------------------------------|
+|  |
+
+<br/>
+
+- Comenzamos añadiendo el enlace a la acción edit
+
+- index.blade.php
+```php
+    <a href="{{route('tasks.edit', $task)}}" class="btn btn-warning">Editar</a>
+```
+
+- Generamos la vista **edit** 
+- TaskController.php
+```php
+    public function edit(Task $task): View
+    {
+        return view('edit', ['task' => $task]);
+    }
+
+    public function update(Request $request, Task $task)
+    {
+        $task->update($request->all());
+        return redirect()->route('tasks.index')->with('success', 'Tarea actualizada con éxito!');
+    }
+```
