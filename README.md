@@ -367,3 +367,37 @@ En el index de tareas recorremos con un foreach las tareas y las mostramos en un
         return redirect()->route('tasks.index')->with('success', 'Tarea actualizada con éxito!');
     }
 ```
+
+--- 
+
+<br/>
+
+
+| 💣 Delete Tasks                                |
+|----------------------------------------------|
+|  |
+
+<br/>
+
+- index.blade.php
+```php
+    <td>
+        <a href="{{route('tasks.edit', $task)}}" class="btn btn-warning">Editar</a>
+
+        <form action="{{route('tasks.destroy', $task)}}" method="POST" class="d-inline">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+        </form>
+    </td>
+```
+
+- TaskController.php
+
+```php
+    public function destroy(Task $task)
+    {
+        $task->delete();
+        return redirect()->route('tasks.index')->with('success', 'Tarea eliminada con éxito!');
+    }
+```
