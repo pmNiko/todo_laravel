@@ -2,7 +2,9 @@
 
 _____
 
-[](https://raw.githubusercontent.com/pmNiko/todo_laravel/13-add-userId-tasks/screen.jpg)
+<p align="center">
+    <img alt="TODO" src="./screen.jpg" width="70%" />
+</p>
 
 _____
 
