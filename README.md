@@ -2,7 +2,7 @@
 
 _____
 
-[](https://github.com/pmNiko/todo_laravel/blob/13-add-userId-tasks/screen.jpg?raw=true)
+[](https://raw.githubusercontent.com/pmNiko/todo_laravel/13-add-userId-tasks/screen.jpg)
 
 _____
 
